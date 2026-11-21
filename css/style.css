@@ -1527,3 +1527,89 @@ html[data-theme="light"] .form-row textarea {
   }
 }
 
+/* ==========================================
+   MOBILE RESPONSIVENESS IMPROVEMENT
+   Keeps desktop styles unchanged
+========================================== */
+
+@media (max-width: 700px) {
+
+  html {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  .container {
+    width: calc(100% - 36px);
+    max-width: 540px;
+    margin-inline: auto;
+  }
+
+  .site-header {
+    width: calc(100% - 18px);
+    max-width: 100%;
+  }
+
+  .hero {
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-description {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .hero-visual,
+  .portrait-frame {
+    max-width: 100%;
+  }
+
+  .nav-links {
+    max-width: 100%;
+  }
+}
+
+/* Fix mobile hero content spacing */
+@media (max-width: 700px) {
+  .hero {
+    padding-left: 18px;
+    padding-right: 18px;
+    box-sizing: border-box;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+/* Mobile Hero Spacing Fix */
+@media (max-width: 700px) {
+  section.hero.container {
+    width: calc(100% - 36px);
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+}
