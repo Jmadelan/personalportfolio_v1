@@ -1,6 +1,7 @@
 
 /* ==========================================
-   JHON MARK N. ADELAN — PREMIUM PORTFOLIO
+   JHON MARK N. ADELAN
+   PREMIUM RESPONSIVE PORTFOLIO
    Purple Glassmorphism Design
 ========================================== */
 
@@ -37,18 +38,24 @@ html[data-theme="light"] {
   --header: rgba(247, 242, 255, 0.78);
 }
 
-/* GLOBAL */
-* {
+/* GLOBAL RESET */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  background: var(--bg);
+  min-width: 0;
 }
 
 body {
   margin: 0;
+  min-width: 0;
+  width: 100%;
   background:
     radial-gradient(
       ellipse 60% 34% at 85% 5%,
@@ -64,8 +71,12 @@ body {
   color: var(--text);
   font-family: "DM Sans", sans-serif;
   line-height: 1.7;
-  overflow-x: hidden;
+  overflow-x: clip;
   transition: background 0.3s, color 0.3s;
+}
+
+main {
+  min-width: 0;
 }
 
 a {
@@ -83,6 +94,10 @@ button {
   cursor: pointer;
 }
 
+img {
+  max-width: 100%;
+}
+
 .container {
   width: min(1120px, calc(100% - 48px));
   margin-inline: auto;
@@ -91,6 +106,7 @@ button {
 .section {
   padding-block: 112px;
   position: relative;
+  min-width: 0;
 }
 
 /* BACKGROUND GLOWS */
@@ -117,13 +133,13 @@ button {
 }
 
 /* ==========================================
-   GLASS NAVIGATION
+   NAVIGATION
 ========================================== */
 .site-header {
   height: 70px;
   position: sticky;
   top: 12px;
-  z-index: 50;
+  z-index: 1000;
   margin: 0 auto;
   width: min(1160px, calc(100% - 28px));
   border: 1px solid var(--line);
@@ -143,6 +159,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 }
 
 .brand {
@@ -153,6 +170,7 @@ button {
   font-weight: 700;
   font-size: 18px;
   letter-spacing: -0.7px;
+  white-space: nowrap;
 }
 
 .brand-mark {
@@ -160,6 +178,7 @@ button {
   place-items: center;
   width: 34px;
   height: 34px;
+  flex-shrink: 0;
   border: 1px solid rgba(167, 139, 250, 0.55);
   border-radius: 10px;
   color: var(--purple);
@@ -202,6 +221,7 @@ button {
   color: var(--text);
   width: 38px;
   height: 38px;
+  flex-shrink: 0;
   border-radius: 10px;
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
@@ -230,10 +250,14 @@ button {
 .hero {
   min-height: calc(100svh - 84px);
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   align-items: center;
   padding-top: 90px;
   padding-bottom: 100px;
+}
+
+.hero-copy {
+  min-width: 0;
 }
 
 .eyebrow,
@@ -256,6 +280,7 @@ button {
 .learning-pulse {
   width: 7px;
   height: 7px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: #9b82f5;
   box-shadow: 0 0 14px #9b82f5;
@@ -373,12 +398,13 @@ button {
 }
 
 /* ==========================================
-   FLOATING TRANSPARENT PORTRAIT
+   PORTRAIT
 ========================================== */
 .hero-visual {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 0;
   min-height: 490px;
   isolation: isolate;
 }
@@ -527,17 +553,19 @@ button {
   -webkit-backdrop-filter: blur(20px) saturate(135%);
   backdrop-filter: blur(20px) saturate(135%);
   border-radius: 20px;
+  min-width: 0;
 }
 
-/* ABOUT */
+/* ABOUT SECTION */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 80px;
   align-items: start;
 }
 
 .about-main {
+  min-width: 0;
   padding: 26px 28px;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -590,12 +618,13 @@ button {
 .fact-row strong {
   font-size: 12px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
-/* SKILLS */
+/* SKILLS SECTION */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -662,7 +691,9 @@ button {
   margin-top: 18px;
 }
 
-/* PROJECTS */
+/* ==========================================
+   PROJECTS SECTION
+========================================== */
 .section-heading-row {
   display: flex;
   justify-content: space-between;
@@ -679,7 +710,7 @@ button {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -695,6 +726,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   padding: 15px 17px 12px;
 }
 
@@ -811,7 +843,9 @@ button {
   color: var(--soft);
 }
 
-/* EDUCATION */
+/* ==========================================
+   EDUCATION SECTION
+========================================== */
 .education-card {
   display: flex;
   align-items: center;
@@ -835,12 +869,14 @@ button {
 
 .education-info {
   flex: 1;
+  min-width: 0;
 }
 
 .education-info h3 {
   font-family: "Space Grotesk", sans-serif;
   font-size: 19px;
   margin: 5px 0;
+  overflow-wrap: anywhere;
 }
 
 .education-info p {
@@ -859,10 +895,12 @@ button {
   color: var(--purple);
 }
 
-/* JOURNEY */
+/* ==========================================
+   LEARNING JOURNEY
+========================================== */
 .journey-layout {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: 70px;
 }
 
@@ -889,7 +927,7 @@ button {
 
 .journey-item {
   display: grid;
-  grid-template-columns: 35px 1fr 20px;
+  grid-template-columns: 35px minmax(0, 1fr) 20px;
   gap: 15px;
   padding: 21px 0;
   border-bottom: 1px solid var(--line);
@@ -913,7 +951,9 @@ button {
   color: var(--soft);
 }
 
-/* CURRENT LEARNING */
+/* ==========================================
+   CURRENT LEARNING
+========================================== */
 .learning-panel {
   padding: 27px;
   background: linear-gradient(
@@ -938,7 +978,7 @@ button {
 
 .learning-items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
   padding-top: 24px;
 }
@@ -957,7 +997,9 @@ button {
   margin-top: 7px;
 }
 
-/* CAREER GOALS */
+/* ==========================================
+   CAREER GOALS
+========================================== */
 .goals-card {
   padding: 45px;
   background:
@@ -968,7 +1010,7 @@ button {
     ),
     var(--surface);
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 55px;
   align-items: center;
 }
@@ -999,12 +1041,18 @@ button {
   line-height: 1.5;
 }
 
-/* CONTACT */
+/* ==========================================
+   CONTACT SECTION
+========================================== */
 .contact-card {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 70px;
   padding: 45px;
+}
+
+.contact-copy {
+  min-width: 0;
 }
 
 .contact-copy h2 {
@@ -1026,6 +1074,7 @@ button {
   margin-top: 22px;
   font-size: 12px;
   color: var(--purple);
+  overflow-wrap: anywhere;
 }
 
 .social-links {
@@ -1043,12 +1092,14 @@ button {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  min-width: 0;
 }
 
 .form-row {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
 }
 
 .form-row label {
@@ -1059,6 +1110,7 @@ button {
 .form-row input,
 .form-row textarea {
   width: 100%;
+  min-width: 0;
   padding: 11px 13px;
   border: 1px solid var(--line);
   border-radius: 11px;
@@ -1110,7 +1162,9 @@ html[data-theme="light"] .form-row textarea {
   color: var(--purple);
 }
 
-/* FOOTER */
+/* ==========================================
+   FOOTER
+========================================== */
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 24px 0;
@@ -1154,7 +1208,9 @@ html[data-theme="light"] .form-row textarea {
   transform: translateY(0);
 }
 
-/* SCROLL REVEAL ANIMATIONS */
+/* ==========================================
+   SCROLL REVEAL ANIMATIONS
+========================================== */
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -1168,7 +1224,9 @@ html[data-theme="light"] .form-row textarea {
   transform: translateY(0);
 }
 
-/* KEYBOARD ACCESSIBILITY */
+/* ==========================================
+   KEYBOARD ACCESSIBILITY
+========================================== */
 .nav-link:focus-visible,
 .button:focus-visible,
 .theme-toggle:focus-visible,
@@ -1189,7 +1247,7 @@ html[data-theme="light"] .form-row textarea {
   }
 
   .hero {
-    grid-template-columns: 1fr 0.8fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
   }
 
   .hero h1 {
@@ -1197,7 +1255,7 @@ html[data-theme="light"] .form-row textarea {
   }
 
   .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .about-grid {
@@ -1220,24 +1278,42 @@ html[data-theme="light"] .form-row textarea {
 
 /* ==========================================
    MOBILE RESPONSIVENESS
+   Single consolidated mobile breakpoint
 ========================================== */
 @media (max-width: 700px) {
+  html {
+    scroll-padding-top: 85px;
+  }
+
+  body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+  }
+
   .container {
-    width: min(100% - 36px, 540px);
+    width: calc(100% - 36px);
+    max-width: 540px;
+    margin-inline: auto;
   }
 
   .section {
     padding-block: 78px;
   }
 
+  /* MOBILE NAVIGATION */
   .site-header {
     top: 8px;
     height: 64px;
     width: calc(100% - 18px);
+    max-width: 100%;
+    z-index: 1000;
+    isolation: isolate;
   }
 
   .site-header .container {
     width: calc(100% - 26px);
+    max-width: none;
   }
 
   .menu-toggle {
@@ -1253,11 +1329,12 @@ html[data-theme="light"] .form-row textarea {
 
   .nav-links {
     position: absolute;
-    top: 70px;
+    top: calc(100% + 8px);
     left: 0;
     right: 0;
-    background: var(--header);
-    border: 1px solid var(--line);
+    z-index: 1001;
+    background: #171126;
+    border: 1px solid rgba(182, 154, 255, 0.25);
     border-radius: 16px;
     padding: 15px 22px 22px;
     display: flex;
@@ -1268,10 +1345,15 @@ html[data-theme="light"] .form-row textarea {
     visibility: hidden;
     pointer-events: none;
     transform: translateY(-8px);
-    transition: 0.2s;
-    -webkit-backdrop-filter: blur(22px);
-    backdrop-filter: blur(22px);
-    box-shadow: var(--glass-shadow);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
+  }
+
+  html[data-theme="light"] .nav-links {
+    background: #ffffff;
+    box-shadow: 0 20px 55px rgba(65, 40, 110, 0.16);
   }
 
   .nav-links.open {
@@ -1281,7 +1363,11 @@ html[data-theme="light"] .form-row textarea {
     transform: translateY(0);
   }
 
-  .nav-link {
+  .nav-links .nav-link {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 1;
     padding: 12px 4px;
     border-bottom: 1px solid var(--line);
   }
@@ -1291,15 +1377,27 @@ html[data-theme="light"] .form-row textarea {
     padding: 12px 4px;
   }
 
-  .hero {
+  /* MOBILE HERO */
+  section.hero.container {
+    width: calc(100% - 36px);
+    max-width: 540px;
+    margin-inline: auto;
     min-height: auto;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding-top: 75px;
     padding-bottom: 75px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero-copy,
+  .hero-visual {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .hero h1 {
-    font-size: clamp(56px, 15vw, 76px);
+    font-size: clamp(48px, 13vw, 76px);
     letter-spacing: -3px;
     overflow-wrap: anywhere;
   }
@@ -1310,8 +1408,16 @@ html[data-theme="light"] .form-row textarea {
 
   .hero-description {
     font-size: 13px;
+    max-width: 100%;
+    overflow-wrap: break-word;
   }
 
+  .hero-meta {
+    flex-wrap: wrap;
+    gap: 12px 24px;
+  }
+
+  /* MOBILE PORTRAIT */
   .hero-visual {
     min-height: 360px;
     margin-top: 18px;
@@ -1320,6 +1426,7 @@ html[data-theme="light"] .form-row textarea {
   .portrait-frame {
     height: 380px;
     width: min(350px, 100%);
+    max-width: 100%;
   }
 
   .portrait-glow {
@@ -1344,11 +1451,12 @@ html[data-theme="light"] .form-row textarea {
     display: none;
   }
 
+  /* MOBILE ABOUT / JOURNEY / CONTACT */
   .about-grid,
   .journey-layout,
   .goals-card,
   .contact-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 30px;
   }
 
@@ -1374,8 +1482,9 @@ html[data-theme="light"] .form-row textarea {
     flex-direction: column;
   }
 
+  /* MOBILE PROJECTS */
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .project-art {
@@ -1386,6 +1495,7 @@ html[data-theme="light"] .form-row textarea {
     min-height: 0;
   }
 
+  /* MOBILE EDUCATION */
   .education-card {
     align-items: flex-start;
     gap: 14px;
@@ -1407,13 +1517,15 @@ html[data-theme="light"] .form-row textarea {
     white-space: nowrap;
   }
 
+  /* MOBILE JOURNEY */
   .journey-intro h3 {
     font-size: 35px;
     margin: 12px 0;
   }
 
+  /* MOBILE LEARNING */
   .learning-items {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
   }
 
@@ -1421,6 +1533,7 @@ html[data-theme="light"] .form-row textarea {
     padding: 21px;
   }
 
+  /* MOBILE GOALS */
   .goals-card,
   .contact-card {
     padding: 27px 22px;
@@ -1434,10 +1547,12 @@ html[data-theme="light"] .form-row textarea {
     font-size: 18px;
   }
 
+  /* MOBILE CONTACT */
   .contact-copy h2 {
-    font-size: 42px;
+    font-size: clamp(32px, 9vw, 42px);
   }
 
+  /* MOBILE FOOTER */
   .footer-inner {
     flex-wrap: wrap;
   }
@@ -1448,7 +1563,9 @@ html[data-theme="light"] .form-row textarea {
   }
 }
 
-/* SMALL PHONES */
+/* ==========================================
+   SMALL MOBILE PHONES
+========================================== */
 @media (max-width: 380px) {
   .hero h1 {
     font-size: 48px;
@@ -1460,7 +1577,7 @@ html[data-theme="light"] .form-row textarea {
   }
 
   .skills-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .portrait-frame {
@@ -1470,9 +1587,15 @@ html[data-theme="light"] .form-row textarea {
   .portrait-image {
     max-height: 330px;
   }
+
+  .education-card {
+    flex-wrap: wrap;
+  }
 }
 
-/* REDUCED MOTION */
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1489,152 +1612,5 @@ html[data-theme="light"] .form-row textarea {
 
   .portrait-card {
     animation: none;
-  }
-}
-
-/* ==========================================
-   MOBILE NAVIGATION OVERLAP FIX
-========================================== */
-
-@media (max-width: 700px) {
-  .site-header {
-    z-index: 1000;
-    isolation: isolate;
-  }
-
-  .nav-links {
-    top: calc(100% + 8px);
-    z-index: 1001;
-
-    background: #171126;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-
-    border: 1px solid rgba(182, 154, 255, 0.25);
-    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
-  }
-
-  html[data-theme="light"] .nav-links {
-    background: #ffffff;
-    box-shadow: 0 20px 55px rgba(65, 40, 110, 0.16);
-  }
-
-  .nav-links .nav-link {
-    display: block;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-  }
-}
-
-/* ==========================================
-   MOBILE RESPONSIVENESS IMPROVEMENT
-   Keeps desktop styles unchanged
-========================================== */
-
-@media (max-width: 700px) {
-
-  html {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  body {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow-x: clip;
-  }
-
-  .container {
-    width: calc(100% - 36px);
-    max-width: 540px;
-    margin-inline: auto;
-  }
-
-  .site-header {
-    width: calc(100% - 18px);
-    max-width: 100%;
-  }
-
-  .hero {
-    width: 100%;
-    min-width: 0;
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero > * {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  .hero h1 {
-    max-width: 100%;
-    overflow-wrap: anywhere;
-  }
-
-  .hero-description {
-    max-width: 100%;
-    overflow-wrap: break-word;
-  }
-
-  .hero-visual,
-  .portrait-frame {
-    max-width: 100%;
-  }
-
-  .nav-links {
-    max-width: 100%;
-  }
-}
-
-/* Fix mobile hero content spacing */
-@media (max-width: 700px) {
-  .hero {
-    padding-left: 18px;
-    padding-right: 18px;
-    box-sizing: border-box;
-  }
-
-  .hero h1 {
-    max-width: 100%;
-    overflow-wrap: anywhere;
-  }
-}
-/* Mobile Hero Spacing Fix */
-@media (max-width: 700px) {
-  section.hero.container {
-    width: calc(100% - 36px);
-    max-width: 540px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0;
-    padding-right: 0;
-    box-sizing: border-box;
-  }
-}
-/* Mobile layout width and alignment fix */
-@media (max-width: 700px) {
-  html {
-    width: 100%;
-    min-width: 0;
-  }
-
-  body {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-  }
-
-  .hero.container,
-  .section.container {
-    width: calc(100% - 36px);
-    max-width: 540px;
-    margin-inline: auto;
-    box-sizing: border-box;
-  }
-
-  .hero {
-    grid-template-columns: minmax(0, 1fr);
   }
 }

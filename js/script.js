@@ -178,7 +178,7 @@ if (menuToggle && navLinks) {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 700) {
+    if (window.innerWidth > 768) {
       closeMobileMenu();
     }
   });
