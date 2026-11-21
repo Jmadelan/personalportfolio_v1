@@ -1491,3 +1491,39 @@ html[data-theme="light"] .form-row textarea {
     animation: none;
   }
 }
+
+/* ==========================================
+   MOBILE NAVIGATION OVERLAP FIX
+========================================== */
+
+@media (max-width: 700px) {
+  .site-header {
+    z-index: 1000;
+    isolation: isolate;
+  }
+
+  .nav-links {
+    top: calc(100% + 8px);
+    z-index: 1001;
+
+    background: #171126;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+
+    border: 1px solid rgba(182, 154, 255, 0.25);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
+  }
+
+  html[data-theme="light"] .nav-links {
+    background: #ffffff;
+    box-shadow: 0 20px 55px rgba(65, 40, 110, 0.16);
+  }
+
+  .nav-links .nav-link {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+}
+
